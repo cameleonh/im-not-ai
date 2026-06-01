@@ -1,7 +1,7 @@
 {
   "name": "humanize-korean",
   "description": "AI(ChatGPT·Claude·Gemini 등)가 쓴 한글 텍스트의 시그니처(번역투·관용구·기계적 병렬·이모지/불릿 등)를 탐지·분류해 내용 불변을 전제로 자연스러운 한국어로 윤문하는 5인 에이전트 파이프라인 + 슬래시 커맨드 묶음.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "Jaewoo Kim",
     "email": "jaewoo.kim2019@gmail.com"

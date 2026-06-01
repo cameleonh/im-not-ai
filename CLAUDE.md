@@ -43,7 +43,16 @@ im-not-ai/                          # = Claude Code Plugin 루트
 │   ├── skills → ../skills          # 심볼릭 링크
 │   └── commands → ../commands      # 심볼릭 링크
 ├── scripts/
-│   └── install.sh                  # `.claude/`에 복사하는 비-Plugin 설치기
+│   ├── install.sh                  # `.claude/`에 복사하는 비-Plugin 설치기
+│   └── build-claude-ai-zip.sh      # Claude.ai 업로드용 .zip 빌드 (2.0)
+├── dist/claude-ai/humanize-korean/ # Claude.ai 커스텀 스킬 (평탄화 변형, 2.0)
+│   ├── SKILL.md                    # 4단계 순차 단일 스킬 (서브에이전트 없음)
+│   └── references/
+│       ├── detection-guide.md      # 탐지기 노하우 흡수
+│       ├── audit-checklist.md      # 내용 감사 13항 흡수
+│       ├── review-rubric.md        # 자연스러움 등급·과윤문·루프 흡수
+│       ├── ai-tell-taxonomy.md     # (빌드 시 SSOT에서 복사 — gitignore)
+│       └── rewriting-playbook.md   # (빌드 시 SSOT에서 복사 — gitignore)
 └── _workspace/                     # 런타임 산출물 (run_id별)
     └── {YYYY-MM-DD-NNN}/
         ├── 01_input.txt
@@ -57,6 +66,8 @@ im-not-ai/                          # = Claude Code Plugin 루트
 ```
 
 **듀얼 레이아웃**: 정본은 루트(plugin spec), 동시에 `.claude/`에 심볼릭 링크 미러를 둬 plugin 등록 없이 이 리포 안에서 `claude` 켜는 흐름도 그대로 유지.
+
+**Claude.ai 변형 (2.0)**: Claude.ai 커스텀 스킬은 서브에이전트(`Agent`)·`TeamCreate` 병렬 팀·슬래시 커맨드를 지원하지 않는다. 따라서 5인 파이프라인을 단일 `SKILL.md`가 4단계(탐지→윤문→내용 감사→자연스러움 리뷰)를 순차 수행하도록 평탄화하고, 각 에이전트의 전문 지식을 `dist/claude-ai/humanize-korean/references/`로 흡수했다. SSOT 2개(`ai-tell-taxonomy.md`·`rewriting-playbook.md`)는 중복을 피하려 git에 두지 않고 `scripts/build-claude-ai-zip.sh`가 빌드 시점에 `skills/humanize-korean/references/`에서 복사한다. 품질 기준(철칙·심각도·등급)은 Claude Code 버전과 동일.
 
 ## 파이프라인
 
