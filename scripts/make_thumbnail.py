@@ -43,7 +43,7 @@ PAD = 72
 # ---------- Header ----------
 d.text((PAD, 56), "im-not-ai", font=F("black", 82), fill=INK)
 
-subtitle = "한글 AI 티 제거기"
+subtitle = "한국어 문체 자연화 스킬"
 sub_f = F("med", 26)
 sw = d.textlength(subtitle, font=sub_f)
 d.text((W - PAD - sw, 94), subtitle, font=sub_f, fill=MUTED)
@@ -152,7 +152,7 @@ d.text((badge_x + badge_w + 32, stat_y + 12), meta, font=meta_f, fill=MUTED)
 
 
 # ---------- Footer: URL ----------
-url = "github.com/epoko77-ai/im-not-ai"
+url = "github.com/cameleonh/im-not-ai"
 url_f = F("semi", 22)
 uw = d.textlength(url, font=url_f)
 d.text((W - PAD - uw, H - 50), url, font=url_f, fill=INK)

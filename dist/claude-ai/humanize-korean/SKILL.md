@@ -1,15 +1,15 @@
 ---
 name: humanize-korean
-description: AI(ChatGPT·Claude·Gemini 등)가 쓴 한글 텍스트를 "사람이 쓴 글처럼" 윤문한다. 번역투·영어 인용 과다·기계적 병렬·관용구·피동태 남용·접속사 남발·리듬 균일성·이모지/불릿 과다 등 10대 카테고리 40+ AI 티 패턴을 탐지·분류해 내용은 한 글자도 건드리지 않고 문체·리듬·표현만 자연스러운 한국어로 재작성한다. 4단계(탐지→윤문→내용 감사→자연스러움 리뷰)를 순차 수행한다. 트리거 — "AI 티 없애줘", "AI 같은 글 자연스럽게", "GPT/ChatGPT 문체", "AI 번역투 고쳐", "사람이 쓴 것처럼 윤문", "AI 윤문", "ChatGPT 티 제거", "한글 AI 탐지·윤문", "AI 글 사람처럼", "번역투 제거", "영어 인용 많은 글 윤문", "AI 글 티 안 나게", "휴머나이저", "humanize Korean". 후속 — "특정 카테고리만 다시", "윤문 강도 조정", "장르 바꿔서", "이 문단만", "2차 윤문", "내용은 그대로 두고 톤만". 단순 맞춤법 교정·번역·내용 추가를 동반한 재작성은 제외.
+description: Korean writing revision skill for naturalizing AI-like or translation-like Korean prose while preserving meaning, facts, numbers, names, citations, and genre. Use for "AI 같은 글 자연스럽게", "번역투 줄여줘", "한국어 문체 다듬어줘", "내용은 유지하고 톤만 정리", "논문 문체로 다듬어줘", and academic Korean/English style polish. This is a writing-quality workflow, not a detector-evasion or authorship-misrepresentation tool.
 ---
 
-# Humanize Korean — AI 한글 티 제거기
+# Humanize Korean — 한국어 문체 자연화
 
-AI가 쓴 한글 글의 시그니처 패턴을 탐지·분류해 **내용 불변**을 전제로 자연스러운 한국어로 윤문한다. 원래 5인 에이전트 파이프라인을, 한 번의 대화에서 4단계를 순차 수행하는 단일 절차로 구성했다.
+한국어 글의 번역투, 기계적 병렬, 과한 접속, 리듬 단조로움, 부정확한 학술 문체를 줄여 자연스럽게 읽히도록 윤문한다. 목적은 글쓰기 품질 개선이며, AI 사용 사실을 숨기거나 탐지기를 우회하는 것이 아니다. 원래 5인 에이전트 파이프라인을 한 대화 안에서 4단계로 평탄화해 순차 수행한다.
 
 ## 철칙 (4대 불문율)
 
-1. **의미 불변 (Fidelity First)** — 사실·주장·수치·고유명사·인용은 100% 원문 보존.
+1. **의미 보존 (Fidelity First)** — 사실·주장·수치·고유명사·인용은 원문과 의미 동등하게 보존.
 2. **근거 기반 (Span-Grounded)** — 모든 변경은 Step 1 탐지 finding에 연결. 탐지 없는 구간은 건드리지 않는다.
 3. **장르 유지 (Tone Match)** — 칼럼을 문학으로, 리포트를 에세이로 옮기지 않는다.
 4. **과윤문 금지 (No Over-Polish)** — 변경률 30% 초과 시 경고, 50% 초과 시 강제 중단.
@@ -34,6 +34,7 @@ AI가 쓴 한글 글의 시그니처 패턴을 탐지·분류해 **내용 불변
 - `references/rewriting-playbook.md` — 카테고리별 치환 레시피
 - `references/audit-checklist.md` — 내용 감사 13항
 - `references/review-rubric.md` — 자연스러움 등급·과윤문 신호·루프 정책
+- `references/academic-style-sources.md` — 논문/학술 문체 요청 시만 로드하는 공개 PDF 기반 문체 원칙
 
 ### Step 1 — 탐지
 
@@ -52,6 +53,7 @@ AI가 쓴 한글 글의 시그니처 패턴을 탐지·분류해 **내용 불변
 - 문단 단위로 커밋하고, 변경 전후 diff와 **변경률**을 기록한다.
 - 변경률 30% 초과 → 경고 플래그, **50% 초과 → 중단**하고 마지막 안정본으로 롤백.
 - 수치·고유명사·큰따옴표 인용·법률 조문은 **절대 변경 금지**.
+- 논문·학술 문체 요청이면 `academic-style-sources.md`를 읽고, 특정 교수의 개인 문체가 아니라 일반 학술 관습(문제-방법-결과-함의, 조작적 정의, 신중한 인과 표현)만 적용한다.
 
 ### Step 3 — 내용 감사
 

@@ -226,8 +226,8 @@ fi
 
 ok "설치 완료 → $DEST_LABEL"
 if [[ $GLOBAL -eq 1 ]]; then
-  log "확인: 어느 디렉토리에서든 'claude' 실행 후 /humanize 또는 'AI 티 없애줘'"
+  log "확인: 어느 디렉토리에서든 'claude' 실행 후 /humanize 또는 '한국어 문체 다듬어줘'"
 else
-  log "확인: cd \"$TARGET\" && claude  → 그 안에서 /humanize 또는 'AI 티 없애줘'"
+  log "확인: cd \"$TARGET\" && claude  → 그 안에서 /humanize 또는 '한국어 문체 다듬어줘'"
 fi
 log "제거: $0 --uninstall$([[ $GLOBAL -eq 1 ]] && echo ' --global' || echo " --target \"$TARGET\"")"

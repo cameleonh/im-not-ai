@@ -1,5 +1,5 @@
 {
-  "name": "epoko77-ai-plugins",
+  "name": "cameleonh-plugins",
   "owner": {
     "name": "Jaewoo Kim",
     "email": "jaewoo.kim2019@gmail.com"
@@ -8,20 +8,20 @@
     {
       "name": "humanize-korean",
       "source": ".",
-      "description": "AI(ChatGPT·Claude·Gemini 등)가 쓴 한글 텍스트의 시그니처(번역투·관용구·기계적 병렬·이모지/불릿 등)를 탐지·분류해 내용 불변을 전제로 자연스러운 한국어로 윤문하는 5인 에이전트 파이프라인 + 슬래시 커맨드 묶음.",
+      "description": "한국어 텍스트의 번역투·기계적 병렬·과한 접속·학술 문체 어긋남을 탐지하고, 의미와 사실을 보존하면서 자연스럽게 윤문하는 에이전트 파이프라인 + 슬래시 커맨드 묶음.",
       "category": "writing",
       "keywords": [
         "korean",
         "humanize",
-        "ai-detection",
+        "style-revision",
         "rewrite",
         "korean-style",
         "translation-style",
         "humanize-korean"
       ],
       "license": "MIT",
-      "homepage": "https://github.com/epoko77-ai/im-not-ai",
-      "repository": "https://github.com/epoko77-ai/im-not-ai"
+      "homepage": "https://github.com/cameleonh/im-not-ai",
+      "repository": "https://github.com/cameleonh/im-not-ai"
     }
   ]
 }

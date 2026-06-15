@@ -1,0 +1,6 @@
+interface:
+  display_name: "Humanize Korean"
+  short_description: "한국어·학술 문체 자연화"
+  default_prompt: "Use $humanize-korean to revise this Korean or academic text while preserving meaning and facts."
+policy:
+  allow_implicit_invocation: true

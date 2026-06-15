@@ -2,7 +2,7 @@
 
 ## 프로젝트 개요
 
-AI(ChatGPT·Claude·Gemini 등)가 쓴 한글 텍스트를 "사람이 쓴 글처럼" 윤문해주는 5인 파이프라인 하네스. 번역투·영어 인용 과다·기계적 병렬·관용구·피동태 남용·접속사 남발·리듬 균일성·이모지/불릿 과다 등 10대 카테고리 40+ AI 티 패턴을 탐지·분류해 **내용은 한 글자도 건드리지 않고** 문체·리듬·표현만 재작성한다.
+한국어 텍스트의 번역투·영어 인용 과다·기계적 병렬·관용구·피동태 남용·접속사 남발·리듬 균일성·이모지/불릿 과다 등 10대 카테고리 40+ 문체 패턴을 탐지·분류하고, **의미·사실·수치·고유명사·인용을 보존하면서** 문체·리듬·표현을 자연스럽게 재작성하는 5인 파이프라인 하네스.
 
 ## 철칙
 
@@ -39,9 +39,9 @@ im-not-ai/                          # = Claude Code Plugin 루트
 │   ├── humanize-list.md
 │   └── humanize-web.md
 ├── .claude/                        # 이 리포 안에서 직접 `claude` 켤 때를 위한 미러
-│   ├── agents → ../agents          # 심볼릭 링크
-│   ├── skills → ../skills          # 심볼릭 링크
-│   └── commands → ../commands      # 심볼릭 링크
+│   ├── agents/                     # 루트 agents/ 미러
+│   ├── skills/                     # 루트 skills/ 미러
+│   └── commands/                   # 루트 commands/ 미러
 ├── scripts/
 │   ├── install.sh                  # `.claude/`에 복사하는 비-Plugin 설치기
 │   └── build-claude-ai-zip.sh      # Claude.ai 업로드용 .zip 빌드 (2.0)
@@ -65,9 +65,11 @@ im-not-ai/                          # = Claude Code Plugin 루트
         └── summary.md
 ```
 
-**듀얼 레이아웃**: 정본은 루트(plugin spec), 동시에 `.claude/`에 심볼릭 링크 미러를 둬 plugin 등록 없이 이 리포 안에서 `claude` 켜는 흐름도 그대로 유지.
+**듀얼 레이아웃**: 정본은 루트(plugin spec), 동시에 `.claude/`에 미러 디렉터리를 둬 plugin 등록 없이 이 리포 안에서 `claude` 켜는 흐름도 그대로 유지.
 
-**Claude.ai 변형 (2.0)**: Claude.ai 커스텀 스킬은 서브에이전트(`Agent`)·`TeamCreate` 병렬 팀·슬래시 커맨드를 지원하지 않는다. 따라서 5인 파이프라인을 단일 `SKILL.md`가 4단계(탐지→윤문→내용 감사→자연스러움 리뷰)를 순차 수행하도록 평탄화하고, 각 에이전트의 전문 지식을 `dist/claude-ai/humanize-korean/references/`로 흡수했다. SSOT 2개(`ai-tell-taxonomy.md`·`rewriting-playbook.md`)는 중복을 피하려 git에 두지 않고 `scripts/build-claude-ai-zip.sh`가 빌드 시점에 `skills/humanize-korean/references/`에서 복사한다. 품질 기준(철칙·심각도·등급)은 Claude Code 버전과 동일.
+**Claude.ai 변형 (2.0)**: Claude.ai 커스텀 스킬은 서브에이전트(`Agent`)·`TeamCreate` 병렬 팀·슬래시 커맨드를 지원하지 않는다. 따라서 5인 파이프라인을 단일 `SKILL.md`가 4단계(탐지→윤문→내용 감사→자연스러움 리뷰)를 순차 수행하도록 평탄화하고, 각 에이전트의 전문 지식을 `dist/claude-ai/humanize-korean/references/`로 흡수했다. SSOT reference는 `scripts/build-claude-ai-zip.sh`가 빌드 시점에 `skills/humanize-korean/references/`에서 복사한다. 품질 기준(철칙·심각도·등급)은 Claude Code 버전과 동일.
+
+**Codex 변형 (2.1)**: Codex는 Claude 전용 `Agent`/`TeamCreate`를 전제로 하지 않는다. `skills/humanize-korean/SKILL.md`는 같은 역할을 메인 agent가 순차 실행하는 fallback을 포함하며, `scripts/install-codex.sh`로 `${CODEX_HOME:-$HOME/.codex}/skills/humanize-korean`에 설치한다.
 
 ## 파이프라인
 
