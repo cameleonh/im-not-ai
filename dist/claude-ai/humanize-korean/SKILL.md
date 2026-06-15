@@ -1,6 +1,6 @@
 ---
 name: humanize-korean
-description: Korean writing revision skill for naturalizing AI-like or translation-like Korean prose while preserving meaning, facts, numbers, names, citations, and genre. Use for "AI 같은 글 자연스럽게", "번역투 줄여줘", "한국어 문체 다듬어줘", "내용은 유지하고 톤만 정리", "논문 문체로 다듬어줘", and academic Korean/English style polish. This is a writing-quality workflow, not a detector-evasion or authorship-misrepresentation tool.
+description: Korean writing revision skill for naturalizing AI-like or translation-like Korean prose while preserving meaning, facts, numbers, names, citations, and genre. Use for "AI 같은 글 자연스럽게", "번역투 줄여줘", "한국어 문체 다듬어줘", "내용은 유지하고 톤만 정리", "논문 문체로 다듬어줘", "내 스타일로 써줘", and academic Korean/English style polish. This is a writing-quality workflow, not a detector-evasion or authorship-misrepresentation tool.
 ---
 
 # Humanize Korean — 한국어 문체 자연화
@@ -35,6 +35,7 @@ description: Korean writing revision skill for naturalizing AI-like or translati
 - `references/audit-checklist.md` — 내용 감사 13항
 - `references/review-rubric.md` — 자연스러움 등급·과윤문 신호·루프 정책
 - `references/academic-style-sources.md` — 논문/학술 문체 요청 시만 로드하는 공개 PDF 기반 문체 원칙
+- `references/user-style-profile.md` — 사용자 칼럼/논평 문체 요청 시만 로드하는 개인 문체 profile
 
 ### Step 1 — 탐지
 
@@ -54,6 +55,7 @@ description: Korean writing revision skill for naturalizing AI-like or translati
 - 변경률 30% 초과 → 경고 플래그, **50% 초과 → 중단**하고 마지막 안정본으로 롤백.
 - 수치·고유명사·큰따옴표 인용·법률 조문은 **절대 변경 금지**.
 - 논문·학술 문체 요청이면 `academic-style-sources.md`를 읽고, 특정 교수의 개인 문체가 아니라 일반 학술 관습(문제-방법-결과-함의, 조작적 정의, 신중한 인과 표현)만 적용한다.
+- 사용자 문체 요청이면 `user-style-profile.md`를 읽고, 문장이나 표현을 베끼지 말고 구조·톤·논증 순서만 적용한다.
 
 ### Step 3 — 내용 감사
 

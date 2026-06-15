@@ -14,6 +14,23 @@ Do not imitate a living author's distinctive voice. Use these sources to infer g
 
 Do not quote long passages from the PDFs. Do not store the PDFs in a public repository unless redistribution is explicitly licensed.
 
+## Docling Parsing Status
+
+The PDFs were downloaded locally into `_style_sources/pdf/` and parsed with Docling into `_style_sources/parsed/`. Parsed markdown files are local working artifacts and are not committed.
+
+Parsing results used for this profile:
+
+| ID | Parsed artifact | Result |
+|----|-----------------|--------|
+| EN-GOLDIN-1 | `nber-w33311-goldin-babies-macroeconomy.md` | Full text parsed successfully, about 102k characters |
+| EN-RODRIK-1 | `nber-w9129-rodrik-feasible-globalizations.md` | Full text parsed successfully, about 51k characters |
+| EN-SUNSTEIN-1 | `sunstein-ethics-of-nudging.md` | Full text parsed successfully, about 84k characters |
+| EN-PINKER-1 | `dash-pinker-common-knowledge.md` | Full text parsed successfully, about 96k characters |
+| KR-LEE-1 | OCR first-five-page sample | Usable but noisy OCR, about 3.2k characters |
+| KR-GIM-1 / KR-LEE-2 / KR-LEE-3 | text-layer parse and OCR sample | Insufficient Korean extraction in this environment |
+
+Therefore, use the English source rules with high confidence. Use Korean source rules more conservatively: combine the limited Docling output with the visible structure of the Korean papers and do not claim exhaustive parsing of every Korean PDF.
+
 ## Korean Academic Sources
 
 ### Seoul National University, urban planning and regional economics
@@ -44,6 +61,8 @@ Use these as conventions, not as personal imitation.
 6. Use paragraph openings that orient the reader: "첫째" is acceptable in methods/results sections, but avoid mechanical "첫째/둘째/셋째" throughout the whole paper.
 7. Keep field terms stable. Do not replace terms such as "공간적 자기상관", "사회계정행렬", "총요소생산성", "도시재생" with casual synonyms.
 8. For implications, name the specific actor or policy level: 중앙정부, 지방정부, 감정평가 실무, 도시계획 제도, 후속 연구.
+9. When reporting empirical design, connect each variable to its role: 종속변수, 설명변수, 통제변수, 분석 단위, 자료 출처.
+10. If the source is an abstract, keep the sequence purpose -> method/data -> result -> policy implication.
 
 ## English Academic Sources
 
@@ -73,6 +92,9 @@ Faculty identity sources:
 6. Avoid generic intensifiers such as important, significant, transformative unless paired with a specific mechanism or measured effect.
 7. Limit long nominal chains. If a sentence contains more than three stacked abstract nouns, rewrite around the actor, measure, or mechanism.
 8. Use limitations as part of the argument, not as a generic final paragraph.
+9. For economics-style writing, state the puzzle first, then the mechanism, then the empirical or historical scope.
+10. For law/policy writing, enumerate objections or propositions only when each item is substantively distinct.
+11. For psychology-style writing, introduce the puzzle through a concrete scene only if the scene directly motivates the theoretical concept.
 
 ## Application Checklist
 

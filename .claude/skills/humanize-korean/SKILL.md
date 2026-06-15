@@ -1,6 +1,6 @@
 ---
 name: humanize-korean
-description: Korean writing revision skill for naturalizing AI-like or translation-like Korean prose while preserving meaning, facts, numbers, names, citations, and genre. Use for requests such as "AI 같은 글 자연스럽게", "번역투 줄여줘", "한국어 문체 다듬어줘", "내용은 유지하고 톤만 정리", "논문 문체로 다듬어줘", "academic Korean/English style polish", and follow-up edits such as changing revision strength, rerunning a paragraph, or reviewing residual awkwardness. This is a writing-quality workflow, not a detector-evasion or authorship-misrepresentation tool.
+description: Korean writing revision skill for naturalizing AI-like or translation-like Korean prose while preserving meaning, facts, numbers, names, citations, and genre. Use for requests such as "AI 같은 글 자연스럽게", "번역투 줄여줘", "한국어 문체 다듬어줘", "내용은 유지하고 톤만 정리", "논문 문체로 다듬어줘", "내 스타일로 써줘", "Honey_hoony 스타일", "academic Korean/English style polish", and follow-up edits such as changing revision strength, rerunning a paragraph, or reviewing residual awkwardness. This is a writing-quality workflow, not a detector-evasion or authorship-misrepresentation tool.
 ---
 
 # Humanize Korean
@@ -32,6 +32,7 @@ Load only the references needed for the task.
 - Always load `references/ai-tell-taxonomy.md` for Korean AI-like/translation-like pattern categories.
 - Always load `references/rewriting-playbook.md` before rewriting.
 - Load `references/academic-style-sources.md` when the user asks for 논문, 학술, academic, paper, journal, thesis, Harvard/SNU style, or professor/PDF-based writing guidance.
+- Load `references/user-style-profile.md` when the user asks for 내 스타일, Honey_hoony style, or asks to use their own essay/writing as a reference.
 - Load `references/web-service-spec.md` only for web/API/product requests.
 
 Do not download or store copyrighted PDFs unless the user explicitly asks and the source license allows redistribution. Prefer source URLs and high-level style notes.
@@ -81,6 +82,11 @@ For academic polish, use `academic-style-sources.md`:
 
 - Korean papers: problem/method/result/implication order, restrained claims, clear operational definitions, and cautious causal language.
 - English papers: thesis-first paragraphs, explicit scope conditions, precise verbs, signposted limitations, and evidence-led transitions.
+
+For user-style editorial writing, use `user-style-profile.md`:
+
+- Start from a public principle, move through a concrete failure, diagnose the institutional mechanism, and end with a firm reform demand.
+- Keep the user's direct, controlled critical tone without copying phrases verbatim.
 
 ### 4. Fidelity Audit
 

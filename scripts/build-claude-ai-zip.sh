@@ -24,7 +24,7 @@ echo ""
 
 # --- 1. SSOT 복사 동기화 ------------------------------------------------
 echo "1) SSOT references 동기화"
-for f in ai-tell-taxonomy.md rewriting-playbook.md academic-style-sources.md; do
+for f in ai-tell-taxonomy.md rewriting-playbook.md academic-style-sources.md user-style-profile.md; do
   src="$SSOT_DIR/$f"
   [ -f "$src" ] || fail "SSOT 원본 없음: $src"
   cp "$src" "$REF_DIR/$f"

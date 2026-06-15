@@ -341,14 +341,16 @@ bash scripts/build-claude-ai-zip.sh
 
 논문·학술 문체 요청 시 `skills/humanize-korean/references/academic-style-sources.md`를 참고합니다. 여기에는 서울대 김태형·이영성 교수 관련 공개 PDF, Harvard의 Claudia Goldin·Dani Rodrik·Cass Sunstein·Steven Pinker 공개 PDF/working paper 링크와, 그 자료에서 추출한 일반 학술 문체 원칙이 들어 있습니다.
 
-PDF 원문은 repo에 포함하지 않습니다. 로컬에서만 받아 참고하려면:
+PDF 원문과 Docling 파싱 산출물은 repo에 포함하지 않습니다. 로컬에서 받아 파싱하려면:
 
 ```bash
 bash scripts/fetch-style-pdfs.sh --dry-run
 bash scripts/fetch-style-pdfs.sh
+python scripts/parse-style-pdfs-docling.py _style_sources/pdf _style_sources/parsed
+python scripts/parse-style-pdfs-docling.py _style_sources/pdf-samples _style_sources/parsed-ocr --ocr
 ```
 
-다운로드 위치는 gitignore된 `_style_sources/pdf/`입니다.
+다운로드 위치는 gitignore된 `_style_sources/pdf/`이고, Docling markdown 산출물은 `_style_sources/parsed/`입니다. 한국어 PDF 중 텍스트 레이어가 약한 파일은 OCR 샘플 파싱이 필요할 수 있습니다.
 
 ## 웹 서비스 확장 (옵션)
 
